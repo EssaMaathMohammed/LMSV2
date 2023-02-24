@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="usersBorderPane" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../Css/UsersPageCss.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.UsersTableController">
+
+    <top>
+        <HBox>
+            <HBox alignment="CENTER" prefHeight="78.0" prefWidth="476.0">
+                <padding>
+                    <Insets bottom="10" left="40" right="40" top="20" />
+                </padding>
+                <Label fx:id="usersLabel" alignment="CENTER" prefHeight="46.0" prefWidth="349.0" text="Users:" />
+            </HBox>
+            <VBox alignment="TOP_RIGHT" prefHeight="78.0" prefWidth="948.0" spacing="10">
+                <Button fx:id="SectionPage" onAction="#navigation" prefHeight="58.0" prefWidth="138.0" text="Home Page" translateX="70" />
+                <padding>
+                    <Insets bottom="10" right="10" top="10" />
+                </padding>
+            </VBox>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox spacing="10">
+            <padding>
+                <Insets bottom="10" left="50" right="10" />
+            </padding>
+            <TableView fx:id="userTable" prefHeight="630.0" prefWidth="1208.0">
+                <columns>
+                    <TableColumn fx:id="id" prefWidth="278.0000228881836" text="User ID" />
+                    <TableColumn fx:id="userName" minWidth="0.0" prefWidth="296.6000671386719" text="Username" />
+                    <TableColumn fx:id="password" minWidth="0.0" prefWidth="332.199951171875" text="Password" />
+                    <TableColumn fx:id="type" prefWidth="296.20001220703125" text="Type" />
+                </columns>
+            </TableView>
+            <ImageView fitHeight="250" fitWidth="250" translateY="150">
+                <Image url="@../../resources/lead-generation-1.png" />
+
+            </ImageView>
+        </HBox>
+    </center>
+    <bottom>
+        <HBox prefHeight="183.0" prefWidth="1600.0" spacing="15">
+            <padding>
+                <Insets bottom="20" left="100" right="10" top="20" />
+            </padding>
+            <Button onAction="#deleteButtonPressed" prefHeight="44.0" prefWidth="163.0" text="Delete " />
+            <Button onAction="#InsertButtonPressed" prefHeight="44.0" prefWidth="170.0" text="Insert" />
+        </HBox>
+    </bottom>
+
+</BorderPane>

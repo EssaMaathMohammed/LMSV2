@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="booksPageBorderPane" prefHeight="1000.0" prefWidth="1550.0" stylesheets="@../Css/BookPageCss.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.BooksPageController">
+
+    <left>
+        <VBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="335.0" spacing="10">
+            <Button fx:id="homePage" onAction="#navigation" prefHeight="70" prefWidth="180" text="Home Page" />
+            <ImageView fitHeight="350" fitWidth="350" translateY="350">
+                <Image url="@../../resources/Vision.png" />
+            </ImageView>
+            <padding>
+                <Insets left="15" right="10" top="10" />
+            </padding>
+        </VBox>
+    </left>
+    <padding>
+        <Insets right="10" />
+    </padding>
+    <center>
+        <VBox>
+            <ScrollPane fx:id="sectionScrollPane">
+                <GridPane fx:id="sectionGridPane" hgap="30" maxHeight="999.0" prefHeight="930.0" prefWidth="1148.0" vgap="25">
+                    <padding>
+                        <Insets left="10" top="10" />
+                    </padding>
+                    <Button fx:id="addButton" onAction="#addButtonPressed" prefHeight="70" prefWidth="180" text=" + " textAlignment="CENTER" />
+                    <columnConstraints>
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+            </ScrollPane>
+        </VBox>
+    </center>
+
+
+
+
+</BorderPane>

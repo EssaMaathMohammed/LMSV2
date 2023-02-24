@@ -1,0 +1,28 @@
+#sectionName{
+    -fx-text-fill:#98B1D8;
+    -fx-font:30pt "Times New Roman";
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+ #nameColumn,#availability,#price,#quantity,#section,#isbnId,#timesBorrowed{
+     -fx-font:13pt "Times New Roman";
+
+}
+ #tableBorderPane{
+     -fx-background-image: url("../../resources/bg.jpg");
+     -fx-background-size: 1600 1000;
+ }
+ #SectionPage{
+     -fx-text-fill: #4F739E;
+     -fx-font-family: "Arial Narrow";
+     -fx-font-weight: bold;
+     -fx-font-size: 34;
+     -fx-background-color: #2D333F;
+     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+ }
+ #SectionPage:hover{
+     -fx-background-color: #4F739E;
+     -fx-font-family: "Arial Narrow";
+     -fx-text-fill:#2B3136;
+     -fx-font-weight:bold;
+     -fx-font-size: 34;
+ }

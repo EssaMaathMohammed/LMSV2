@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane prefHeight="236.0" prefWidth="475.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.InsertNewUserContoller"
+            stylesheets="@../Css/InsertUserDialogCss.css" fx:id="insertUserDialog">
+
+    <headerText>
+        Adding A New User:
+    </headerText>
+    <padding>
+        <Insets bottom="20" left="20" top="20" />
+    </padding>
+    <content>
+        <GridPane hgap="40" prefHeight="158.0" prefWidth="471.0" vgap="10">
+            <Label prefHeight="18.0" prefWidth="55.0" text="ID: " GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Label text="UserName:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Label text="Type:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+
+            <TextField fx:id="idTextField" prefHeight="26.0" prefWidth="215.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <TextField fx:id="userNameTextField" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="typeTextField" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="passwordTextField" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <columnConstraints>
+            <ColumnConstraints maxWidth="102.4" minWidth="61.00000000000001" prefWidth="102.4" />
+            <ColumnConstraints maxWidth="0.0" minWidth="204.8" prefWidth="250.8" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+
+        </GridPane>
+    </content>
+
+</DialogPane>

@@ -1,0 +1,41 @@
+#booksPageBorderPane{
+    -fx-background-image: url('../../resources/bg.jpg');
+    -fx-background-size: 1680 1120;
+}
+#addButton{
+    -fx-text-fill:#4F739E;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-font-size: 34;
+    -fx-background-color: #2D333F;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+#addButton:hover{
+     -fx-background-color: #4F739E;
+    -fx-font-family: "Arial Narrow";
+     -fx-text-fill:#2D333F;
+     -fx-font-weight:bold;
+    -fx-font-size: 34;
+}
+#homePage{
+    -fx-text-fill: #4F739E;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-font-size: 34;
+    -fx-background-color:#2B3136;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+#homePage:hover{
+    -fx-background-color: #3b6086;
+    -fx-font-family: "Arial Narrow";
+    -fx-text-fill:#2B3136;
+    -fx-font-weight:bold;
+    -fx-font-size: 34;
+}
+#sectionScrollPane{
+    -fx-background-color:#719CBF;
+}
+GridPane{
+    -fx-background-image: url('../../resources/bg.jpg');
+    -fx-background-size:1245.75 1093.75;
+}

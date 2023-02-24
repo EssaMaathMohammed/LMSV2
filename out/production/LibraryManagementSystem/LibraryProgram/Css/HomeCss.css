@@ -1,0 +1,33 @@
+#vbox{
+    -fx-background-image: url('../../resources/bg2.jpg');
+    -fx-background-size:1680 1120;
+}
+#booksPage,#borrowsPage,#membersPage,#BookingPage{
+    -fx-text-fill: #4F739E;
+    -fx-font: 20pt "Times New Roman";
+    -fx-font-weight: bold;
+    -fx-background-color: #2D333F;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+#membersPage:hover,#borrowsPage:hover,#booksPage:hover,#BookingPage:hover{
+    -fx-background-color: #5077A0;
+    -fx-text-fill:#2B3136;
+    -fx-font-weight:bold;
+}
+#label{
+    -fx-font:60pt "Times New Roman";
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+#logoutButton{
+    -fx-text-fill: #5880b3;
+    -fx-font: 15pt "Times New Roman";
+    -fx-font-weight: bold;
+    -fx-background-color: #2D333F;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+#logoutButton:hover{
+    -fx-background-color: #6189be;
+    -fx-text-fill:#2B3136;
+    -fx-font-weight:bold;
+}

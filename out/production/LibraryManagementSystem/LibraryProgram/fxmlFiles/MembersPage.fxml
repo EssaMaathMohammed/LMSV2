@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="memberBorderPane" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../Css/MembersCss.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.MembersPageController">
+
+    <top>
+        <HBox>
+            <HBox prefHeight="58.0" prefWidth="1349.0">
+                <padding>
+                    <Insets bottom="20" left="40" right="980" top="20" />
+                </padding>
+                <Label fx:id="members" text="Members:" textAlignment="CENTER" />
+            </HBox>
+        <VBox alignment="TOP_RIGHT" spacing="10">
+            <padding>
+                <Insets bottom="10" right="10" top="10" />
+            </padding>
+        </VBox>
+         <Button fx:id="homePage" onAction="#navigation" prefHeight="40.0" prefWidth="121.0" text="Home Page">
+            <HBox.margin>
+               <Insets top="10.0" />
+            </HBox.margin>
+         </Button>
+        </HBox>
+    </top>
+    <center>
+        <HBox>
+            <padding>
+                <Insets left="10" right="10" />
+            </padding>
+        <TableView fx:id="tableView" prefHeight="730.0" prefWidth="1470.0">
+            <columns>
+                <TableColumn fx:id="memberIdColumn" onEditCommit="#editCell" prefWidth="172.60001504421234" text="Member Id" />
+                <TableColumn fx:id="firstNameColumn" onEditCommit="#editCell" prefWidth="158.80001831054688" text="First Name" />
+                <TableColumn fx:id="middleNameColumn" onEditCommit="#editCell" prefWidth="176.39999389648438" text="Middle Name" />
+                <TableColumn fx:id="lastNameColumn" onEditCommit="#editCell" prefWidth="185.19998168945312" text="Last Name" />
+                <TableColumn fx:id="memberTypeColumn" onEditCommit="#editCell" prefWidth="158.5999755859375" text="Member Type" />
+                <TableColumn fx:id="collegeColumn" onEditCommit="#editCell" prefWidth="166.0" text="College" />
+                <TableColumn fx:id="departmentColumn" minWidth="5.60003662109375" onEditCommit="#editCell" prefWidth="165.39990234375" text="Department" />
+                <TableColumn fx:id="expireDateColumn" minWidth="0.0" prefWidth="141.0" text="Expire Date" />
+                <TableColumn fx:id="memberTimesBorrowed" prefWidth="146.199951171875" text="Times Borrowed" />
+            </columns>
+        </TableView>
+    </HBox>
+    </center>
+
+    <bottom>
+        <HBox prefHeight="206.0" prefWidth="1600.0" spacing="20">
+            <padding>
+                <Insets bottom="10" left="10" top="10" />
+            </padding>
+            <HBox spacing="10">
+                <VBox spacing="10">
+                    <Label fx:id="fname" text="First Name: " />
+                    <TextField fx:id="searchFirstName" prefHeight="35.0" prefWidth="242.0" />
+                </VBox>
+                <VBox spacing="10">
+                    <Label fx:id="mname" text="Middle Name: " />
+                    <TextField fx:id="searchLastName" prefHeight="35.0" prefWidth="224.0" />
+                </VBox>
+
+            </HBox>
+            <VBox spacing="10">
+                <Label fx:id="department" text="Department: " />
+                <TextField fx:id="searchDepartment" prefHeight="35.0" prefWidth="284.0" />
+            </VBox>
+            <HBox spacing="10">
+                <padding>
+                    <Insets top="30" />
+                </padding>
+                <Button fx:id="findByName" layoutX="200" layoutY="350" onAction="#searchByNameButtonPressed" prefHeight="35.0" prefWidth="124.0" text="Search" textAlignment="CENTER" />
+                <Button fx:id="insertButton" layoutX="300" layoutY="350" onAction="#insertButtonPressed" prefHeight="35.0" prefWidth="123.0" text="Insert" textAlignment="CENTER" />
+                <Button fx:id="delete" layoutX="400" layoutY="350" onAction="#deleteButtonPressed" prefHeight="35.0" prefWidth="126.0" text="Delete" textAlignment="CENTER" />
+            </HBox>
+        </HBox>
+    </bottom>
+</BorderPane>

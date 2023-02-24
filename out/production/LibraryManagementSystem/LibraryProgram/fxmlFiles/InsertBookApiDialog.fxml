@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<DialogPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="LibraryProgram.InsertBookApiDialogController"
+            prefHeight="200.0" prefWidth="400.0" fx:id="BookInsertDialog" stylesheets="@../Css/BookDialogCss.css">
+
+
+    <headerText>
+        Adding A New Book Using ISBN Database:
+    </headerText>
+    <padding>
+        <Insets top="20" bottom="20" left="20"/>
+    </padding>
+    <content>
+        <GridPane hgap="40" vgap="10">
+
+            <Label text="ISBN-13" GridPane.columnIndex="0" GridPane.rowIndex="1" fx:id="InsertBookIsbn"/>
+            <Label text="Price" GridPane.columnIndex="0" GridPane.rowIndex="2" fx:id="InsertBookPrice"/>
+            <Label text="Quantity" GridPane.columnIndex="0" GridPane.rowIndex="3" fx:id="InsertBookQuantity"/>
+
+            <TextField fx:id="isbnTextFieldApi" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="250"/>
+            <TextField fx:id="priceTextFieldApi" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="250"/>
+            <TextField fx:id="quantityTextFieldApi" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="250"/>
+
+        </GridPane>
+    </content>
+</DialogPane>

@@ -1,0 +1,28 @@
+#infoDialogPane{
+    -fx-background-color: #E9F3FF;
+}
+#BookTitle,#BookPublisher,#BookAuthor,#BookDate {
+    -fx-background-color: #E9F3FF;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+    -fx-font: 13pt "Times New Roman";
+    -fx-font-weight: bold;
+}
+#BookTitle:focused,#BookPublisher:focused,#BookAuthor:focused,#BookDate:focused{
+    -fx-background-color: white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
+#updateImageButton {
+    -fx-text-fill: #4F739E;
+    -fx-font: 13pt "Times New Roman";
+    -fx-background-color: #2D333F;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+#updateImageButton:hover{
+    -fx-background-color: #5077A0;
+    -fx-text-fill:#2B3136;
+    -fx-font-weight:bold;
+}
+#BookIsbn,#labelFive,#labelFour,#labelThree,#labelTwo,#labelOne {
+    -fx-font: 13pt "Times New Roman";
+    -fx-font-weight: bold;
+}
