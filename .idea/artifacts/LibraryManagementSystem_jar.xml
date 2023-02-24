@@ -1,0 +1,36 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="LibraryManagementSystem:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/LibraryManagementSystem_jar</output-path>
+    <root id="archive" name="LibraryManagementSystem.jar">
+      <element id="module-output" name="LibraryManagementSystem" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbyLocale_it.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbyLocale_zh_TW.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbyLocale_zh_CN.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbyrun.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbynet.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbyclient.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbyLocale_pt_BR.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbyLocale_de_DE.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbyshared.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbytools.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbyLocale_hu.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbyoptionaltools.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbyLocale_fr.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbyLocale_ko_KR.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbyLocale_ja_JP.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbyLocale_cs.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbyLocale_ru.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbyLocale_pl.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derby.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.jdks/openjdk-15.0.2/Javadb/db-derby-10.15.2.0-bin/lib/derbyLocale_es.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../JavaFxLib/javafx-sdk-16/lib/javafx-swt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../JavaFxLib/javafx-sdk-16/lib/javafx.web.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../JavaFxLib/javafx-sdk-16/lib/javafx.swing.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../JavaFxLib/javafx-sdk-16/lib/javafx.base.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../JavaFxLib/javafx-sdk-16/lib/javafx.graphics.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../JavaFxLib/javafx-sdk-16/lib/javafx.controls.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../JavaFxLib/javafx-sdk-16/lib/javafx.fxml.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../JavaFxLib/javafx-sdk-16/lib/javafx.media.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
