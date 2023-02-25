@@ -1,0 +1,11 @@
+#InsertBookingDialog{
+    -fx-background-image: url('../../resources/c.jpg');
+    -fx-background-size: cover;
+}
+#InsertBookingDialog Label{
+    -fx-alignment: center;
+    -fx-text-fill:#2D333F;
+    -fx-font-family: "Times New Roman";
+    -fx-font-weight: bold;
+    -fx-font-size: 13pt;
+}
