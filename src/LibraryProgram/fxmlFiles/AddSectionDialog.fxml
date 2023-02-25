@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane fx:id="sectionDialog" prefHeight="250.0" prefWidth="350.0" stylesheets="@../Css/addSectionCss.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.AddSectionDialogController">
+    <headerText>
+        Adding New Section
+    </headerText>
+
+    <content>
+
+        <GridPane alignment="TOP_RIGHT" hgap="10" prefHeight="105.0" prefWidth="344.0" vgap="10">
+
+            <ImageView fitHeight="147.0" fitWidth="140.0">
+                <Image url="@../../resources/Puzzle.png" />
+            </ImageView>
+            <Label prefHeight="20.0" prefWidth="125.0" text="Section Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="nameTextField" prefHeight="26.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <padding>
+                <Insets left="10" right="15" top="30" />
+            </padding>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+
+        </GridPane>
+
+    </content>
+   <header>
+
+   </header>
+
+</DialogPane>

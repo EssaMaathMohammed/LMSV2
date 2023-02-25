@@ -1,0 +1,32 @@
+#usersLabel{
+    -fx-text-fill:#1C3177;
+    -fx-font:35pt "Times New Roman";
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+#usersBorderPane{
+    -fx-background-image: url('../../resources/bg2.jpg');
+    -fx-background-size:1792 1190 ;
+}
+#id,#userName,#password,#type{
+    -fx-font:13pt "Times New Roman";
+}
+#SectionPage,#deleteButton,#insertButton,#searchButton{
+    -fx-text-fill:  white;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-font-size: 30;
+    -fx-background-color: #354F91;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+#SectionPage:hover,#deleteButton:hover,#insertButton:hover,#searchButton:hover{
+    -fx-background-color: white;
+    -fx-font-family: "Arial Narrow";
+    -fx-text-fill:#354F91;
+    -fx-font-weight:bold;
+    -fx-font-size: 30;
+}
+#username{
+    -fx-text-fill:white;
+    -fx-font:15pt "Times New Roman";
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}

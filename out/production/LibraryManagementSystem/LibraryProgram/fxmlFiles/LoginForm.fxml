@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="loginPage" prefHeight="800.0" prefWidth="1535.0"  stylesheets="@../Css/LoginCSS.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.LoginController">
+    <BorderPane.margin>
+        <Insets bottom="20" left="50" right="20" top="20" />
+    </BorderPane.margin>
+    <right>
+        <VBox alignment="TOP_CENTER" prefHeight="900.0" prefWidth="502.0" spacing="20" styleClass="loginVbox">
+            <Label fx:id="signInLabel" text="Login" />
+
+            <TextField fx:id="usernameField" prefHeight="40" prefWidth="300" promptText="Username" styleClass="text">
+            <VBox.margin>
+               <Insets right="10.0" />
+            </VBox.margin>
+            </TextField>
+            <PasswordField fx:id="passwordField" prefHeight="40" prefWidth="300" promptText="Password" styleClass="text">
+            <VBox.margin>
+               <Insets right="10.0" />
+            </VBox.margin></PasswordField>
+            <Button fx:id="loginButton" onAction="#LoginButtonPressed" prefHeight="37.0" prefWidth="150.0" text="Login" />
+
+            <padding>
+                <Insets bottom="60" left="20" top="50" />
+            </padding>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+        </VBox>
+    </right>
+   <center>
+        <VBox prefHeight="900.0" prefWidth="633.0" spacing="30" BorderPane.alignment="CENTER">
+            <ImageView fitHeight="150" fitWidth="150">
+                <Image url="@../../resources/image0.png" />
+
+            </ImageView>
+
+            <Label fx:id="welcomeLabel" alignment="CENTER" prefHeight="76.0" prefWidth="636.0" text="SPU" textAlignment="CENTER" translateY="100" />
+            <Label fx:id="welcome" alignment="TOP_CENTER" prefHeight="95.0" prefWidth="641.0" text=" Library Management System" translateY="150" />
+            <Hyperlink fx:id="link" onAction="#uniLinkClicked" prefHeight="31.0" prefWidth="203.0" text="www.spu.edu" translateY="350" />
+            <ImageView fitHeight="350" fitWidth="350" translateX="550">
+                <Image url="@../../resources/idea.png" />
+            </ImageView>
+            <padding>
+                <Insets left="20" top="10" />
+            </padding>
+        </VBox>
+   </center>
+</BorderPane>

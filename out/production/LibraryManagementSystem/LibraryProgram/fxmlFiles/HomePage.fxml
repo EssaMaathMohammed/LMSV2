@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="homePagePane" stylesheets="@../Css/HomeCss.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.HomePageController">
+    <VBox fx:id="vbox" prefHeight="900" prefWidth="1800.0" spacing="20">
+        <padding>
+            <Insets left="15" top="15" />
+        </padding>
+        <Button fx:id="logoutButton" onAction="#pagesMouseClicked" prefHeight="50.0" prefWidth="140.0" text="Log out" />
+<HBox fx:id="hbox" spacing="60">
+    <padding>
+        <Insets bottom="10" left="170" top="100" />
+    </padding>
+    <Button fx:id="booksPage" onAction="#pagesMouseClicked" prefHeight="241.0" prefWidth="270.0" text="Books Page" />
+    <Button fx:id="borrowsPage" onAction="#pagesMouseClicked" prefHeight="239.0" prefWidth="265.0" text="Borrows Page" />
+    <Button fx:id="BookingPage" onAction="#pagesMouseClicked" prefHeight="234.0" prefWidth="269.0" text="Booking Page" />
+    <Button fx:id="membersPage" onAction="#pagesMouseClicked" prefHeight="234.0" prefWidth="269.0" text="Members Page" />
+</HBox>
+
+        <HBox prefWidth="1785.0">
+            <ImageView fitHeight="300" fitWidth="300" translateX="200">
+                <Image url="@../../resources/Astronaut.png" />
+            </ImageView>
+            <Label fx:id="label" text=" SPU " translateX="370" translateY="80"/>
+        </HBox>
+
+
+    </VBox>
+</Pane>

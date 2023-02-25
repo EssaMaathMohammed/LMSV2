@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="bookingBorderPane"  stylesheets="@../Css/BookingPage.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.BookingPageController">
+    <top>
+        <HBox>
+            <HBox minWidth="0.0" prefHeight="92.0" prefWidth="1356.0">
+                <padding>
+                    <Insets bottom="20" left="40" right="980" top="20" />
+                </padding>
+                <Label fx:id="Booking" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="214.0" text="Booking:" textAlignment="CENTER" />
+            </HBox>
+            <VBox alignment="TOP_RIGHT" spacing="10">
+                <padding>
+                    <Insets bottom="10" right="10" top="10" />
+                </padding>
+            </VBox>
+            <Button fx:id="homePage" onAction="#navigation" prefHeight="40.0" prefWidth="121.0" text="Back">
+                <HBox.margin>
+                    <Insets top="10.0" />
+                </HBox.margin>
+            </Button>
+        </HBox>
+    </top>
+    <center>
+        <HBox>
+            <padding>
+                <Insets left="10" right="10" />
+            </padding>
+            <TableView fx:id="bookingTableView" prefHeight="602.0" prefWidth="1510.0">
+                <columns>
+
+                    <TableColumn fx:id="orderId" prefWidth="127.39999520778656" text="Order ID" />
+                    <TableColumn fx:id="memberIdColumn" prefWidth="177.40001678466797" text="Member Id" />
+                    <TableColumn fx:id="firstNameColumn" prefWidth="214.199951171875" text="First Name" />
+                    <TableColumn fx:id="middleNameColumn" prefWidth="201.199951171875" text="Middle Name" />
+                    <TableColumn fx:id="bookNameColumn" prefWidth="250.0" text="Book Name" />
+                    <TableColumn fx:id="bookIsbncolumn" prefWidth="170.0" text="ISBN" />
+                    <TableColumn fx:id="booking_datecolumn" prefWidth="170.7999267578125" text="Booking Date" />
+                    <TableColumn fx:id="due_bookingDateColumn" prefWidth="193.5999755859375" text="Due Booking Date" />
+
+                </columns>
+            </TableView>
+        </HBox>
+    </center>
+
+    <bottom>
+        <HBox prefHeight="206.0" prefWidth="1600.0" spacing="20">
+            <padding>
+                <Insets bottom="10" left="10" top="10" />
+            </padding>
+
+            <VBox spacing="10">
+                <Label fx:id="memberId" text="Member ID: " />
+                <TextField fx:id="searchMID" prefHeight="35.0" prefWidth="284.0" />
+            </VBox>
+            <VBox spacing="10">
+                <Label fx:id="ISBN" text="ISBN : " />
+                <TextField fx:id="searchIsbn" prefHeight="35.0" prefWidth="284.0" />
+            </VBox>
+            <HBox spacing="10">
+                <padding>
+                    <Insets top="30" />
+                </padding>
+                    <Button fx:id="findByName" layoutX="200" layoutY="350" onAction="#searchByIDButtonPressed" prefHeight="35.0" prefWidth="124.0" text="Search" textAlignment="CENTER" />
+                    <Button fx:id="insertButton" layoutX="300" layoutY="350" onAction="#insertButtonPressed" prefHeight="35.0" prefWidth="123.0" text="Insert" textAlignment="CENTER" />
+                    <Button fx:id="delete" layoutX="400" layoutY="350" onAction="#deleteButtonPressed" prefHeight="35.0" prefWidth="126.0" text="Delete" textAlignment="CENTER" />
+                    <Button fx:id="startBookingButton" onAction="#startBookingButtonClicked" prefHeight="35.0" prefWidth="126.0" text="Borrow" textAlignment="CENTER" />
+            </HBox>
+        </HBox>
+    </bottom>
+</BorderPane>

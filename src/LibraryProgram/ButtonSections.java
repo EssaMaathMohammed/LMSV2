@@ -11,27 +11,27 @@ public class ButtonSections extends Button {
         setPrefWidth(180);
         setMinHeight(70); // we made the min height for the scroll of the grid pane
         setStyle(
-                "  -fx-text-fill:  #4F739E;" +
+                "  -fx-text-fill:  #ABEEFE;" +
                         "    -fx-font-family: \"Arial Narrow\";" +
                         "    -fx-font-weight: bold;" +
                         "-fx-font-size: 34;" +
-                        " -fx-background-color:#2D333F;" +
+                        " -fx-background-color:#354F91;" +
                         "    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );");
 
         setOnMouseExited(mouseEvent -> {
             setStyle(
-                "  -fx-text-fill:  #4F739E;" +
+                "  -fx-text-fill:  #ABEEFE;" +
                         "    -fx-font-family: \"Arial Narrow\";" +
                         "    -fx-font-weight: bold;" +
                         "-fx-font-size: 34;" +
-                        " -fx-background-color: #2D333F;" +
+                        " -fx-background-color: #354F91;" +
                         "    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );"
         );});
 
         setOnMouseEntered(mouseEvent -> {
-            setStyle(" -fx-background-color: #4F739E;" +
+            setStyle(" -fx-background-color: #ABEEFE;" +
                     " -fx-font-family: \"Arial Narrow\";" +
-                    "    -fx-text-fill:#2D333F;\n" +
+                    "    -fx-text-fill:#354F91;\n" +
                     "    -fx-font-weight:bold;" +
                     "-fx-font-size: 34");
         });

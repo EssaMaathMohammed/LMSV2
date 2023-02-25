@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane fx:id="infoDialogPane" prefHeight="593.0" prefWidth="850.0" stylesheets="@../Css/BookInfoCss.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.BookInfoDialogController">
+    <headerText>
+        Books Information:
+    </headerText>
+    <padding>
+        <Insets bottom="20" left="20" top="20" />
+    </padding>
+    <content>
+        <GridPane hgap="30" prefHeight="546.0" prefWidth="837.0" vgap="10">
+            <ImageView fx:id="ImageSource" fitHeight="400" fitWidth="250" GridPane.rowIndex="2" GridPane.rowSpan="4">
+                <Image url="@../../resources/Xiaomi-Redmi-Note-5A-Stock-Wallpaper-02-1080x1920.jpg" />
+            </ImageView>
+
+            <Label fx:id="labelOne" prefHeight="46.0" prefWidth="131.0" text="Full Title" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="labelTwo" prefHeight="49.0" prefWidth="134.0" text="Author" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="labelThree" prefHeight="47.0" prefWidth="132.0" text="Date Published" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="labelFour" prefHeight="50.0" prefWidth="433.0" text="ISBN 13" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="labelFive" prefHeight="61.0" prefWidth="128.0" text="Publisher" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+
+            <TextField fx:id="BookTitle" prefHeight="46.0" prefWidth="357.0" text="no title" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="BookAuthor" prefHeight="49.0" prefWidth="402.0" text="no Author" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="BookDate" prefHeight="53.0" prefWidth="403.0" text="no Date Published" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label fx:id="BookIsbn" prefHeight="50.0" prefWidth="367.0" text="no ISBN 13" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <padding>
+               <Insets left="8.0" />
+            </padding></Label>
+            <TextField fx:id="BookPublisher" prefHeight="70.0" prefWidth="404.0" text="no Publisher" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+
+            <Button fx:id="updateImageButton" onAction="#updateImageButtonPressed" prefHeight="40.0" prefWidth="141.0" text="Update Image" GridPane.rowIndex="8" />
+         <Label fx:id="labelSix" text="Quantity" GridPane.columnIndex="1" GridPane.rowIndex="7" prefHeight="50.0" prefWidth="367.0"/>
+         <TextField fx:id="quantityTextField" GridPane.columnIndex="2" GridPane.rowIndex="7" prefHeight="46.0" prefWidth="357.0"/>
+
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints maxWidth="129.40000000000003" minWidth="115.59999999999997" prefWidth="117.59999999999997" />
+            <ColumnConstraints maxWidth="370.8" minWidth="200.0" prefWidth="368.8" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="40.0" />
+            <RowConstraints minHeight="50.0" />
+            <RowConstraints minHeight="50.0" />
+            <RowConstraints minHeight="50.0" />
+            <RowConstraints minHeight="50.0" />
+            <RowConstraints minHeight="50.0" />
+            <RowConstraints prefHeight="0.0" />
+            <RowConstraints maxHeight="55.0" minHeight="36.0" prefHeight="40.0" />
+            <RowConstraints maxHeight="74.39999999999998" minHeight="26.400000000000034" prefHeight="50.400000000000034" />
+            <RowConstraints maxHeight="24.0" minHeight="0.0" prefHeight="0.0" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+
+        </GridPane>
+    </content>
+</DialogPane>

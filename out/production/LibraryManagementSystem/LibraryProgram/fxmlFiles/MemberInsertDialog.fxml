@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane fx:id="memberDialog" prefHeight="271.0" prefWidth="600.0" stylesheets="@../Css/InsertMember.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.MemberInsertDialogController">
+
+    <headerText>
+        Adding A New Member:
+    </headerText>
+    <padding>
+        <Insets bottom="20" left="20" top="20" />
+    </padding>
+    <content>
+        <GridPane hgap="40" vgap="10">
+            <TextField fx:id="firstName" promptText="First Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="MiddleName" promptText="Middle Name" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <TextField fx:id="lastName" promptText="Last Name" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <TextField fx:id="college" promptText="College" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="department" promptText="Department" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="type" promptText="Member Type" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label text="EXP Date:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="day" promptText="Day" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <TextField fx:id="month" promptText="Month" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="year" promptText="Year" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <TextField fx:id="m_id" promptText="Member ID" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+    </content>
+</DialogPane>

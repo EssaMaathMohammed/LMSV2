@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane prefHeight="169.0" prefWidth="454.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.SearchDialogController"
+            stylesheets="@../Css/searchCss.css" fx:id="searchDateDialog">
+    <headerText>
+        Searching For Borrows Between Two Dates:
+    </headerText>
+    <padding>
+        <Insets bottom="30" left="20" top="20" />
+    </padding>
+    <content>
+
+    <GridPane hgap="30" prefHeight="94.0" prefWidth="434.0" vgap="20">
+        <Label fx:id="fromDate" text="From Date:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Label fx:id="toDate" text="To Date:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+
+         <TextField prefHeight="26.0" prefWidth="69.0" GridPane.columnIndex="1" fx:id="dayFromDate" promptText="Day"/>
+         <TextField prefHeight="26.0" prefWidth="71.0" GridPane.columnIndex="2" fx:id="monthFromDate" promptText="Month"/>
+         <TextField prefHeight="26.0" prefWidth="77.0" GridPane.columnIndex="3" fx:id="yearFromDate" promptText="Year"/>
+         <TextField prefHeight="26.0" prefWidth="67.0" GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="dayToDate" promptText="Day"/>
+         <TextField prefHeight="26.0" prefWidth="63.0" GridPane.columnIndex="2" GridPane.rowIndex="1" fx:id="monthToDate" promptText="Month"/>
+         <TextField prefHeight="26.0" prefWidth="87.0" GridPane.columnIndex="3" GridPane.rowIndex="1" fx:id="yearToDate" promptText="Year"/>
+
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+
+
+    </GridPane>
+    </content>
+
+</DialogPane>

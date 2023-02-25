@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="tableBorderPane" stylesheets="@../Css/BooksTableCss.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.BooksTableController">
+
+    <top>
+        <HBox>
+        <HBox alignment="CENTER" prefHeight="78.0" prefWidth="476.0">
+            <padding>
+                <Insets bottom="10" left="40" right="40" top="20" />
+            </padding>
+            <Label fx:id="sectionName" alignment="CENTER" prefHeight="46.0" prefWidth="372.0" text="Section Label" />
+        </HBox>
+            <VBox alignment="TOP_RIGHT" prefHeight="78.0" prefWidth="969.0" spacing="10">
+
+                <Button fx:id="SectionPage" onAction="#navigation" prefHeight="44.0" prefWidth="120.0" text="Home Page" translateX="70" />
+                <Button fx:id="back" onAction="#navigationback" prefHeight="44.0" prefWidth="120.0" text="Back" translateX="70" />
+                <padding>
+                    <Insets bottom="10" right="10" top="10" />
+                </padding>
+            </VBox>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox prefHeight="862.0" prefWidth="1600.0">
+            <padding>
+                <Insets bottom="10" left="20" right="10" />
+            </padding>
+                <TableView fx:id="bookTableView" prefHeight="613.0" prefWidth="1498.0">
+                    <columns>
+                        <TableColumn fx:id="nameColumn" onEditCommit="#editCell" prefWidth="464.8000068664551" text="Book Name" />
+                        <TableColumn fx:id="availability" minWidth="0.0" prefWidth="155.19998168945312" text="Available" />
+                        <TableColumn fx:id="price" prefWidth="143.0" text="Price" />
+                        <TableColumn fx:id="quantity" prefWidth="139.60003662109375" text="Quantity" />
+                        <TableColumn fx:id="section" onEditCommit="#editCell2" prefWidth="153.0" text="Section" />
+                        <TableColumn fx:id="isbnId" minWidth="0.0" prefWidth="256.199951171875" text="ISBN" />
+                        <TableColumn fx:id="timesBorrowed" prefWidth="190.199951171875" text="Times Borrowed" />
+                     </columns>
+                </TableView>
+        </HBox>
+    </center>
+
+    <bottom>
+        <HBox prefHeight="289.0" prefWidth="1580.0" spacing="20">
+            <padding>
+                <Insets bottom="10" left="20" top="30" />
+            </padding>
+
+            <Button fx:id="findByName" onAction="#searchButtonPressed" prefHeight="35" prefWidth="90" text="Find" />
+            <TextField fx:id="searchByName" prefHeight="35" prefWidth="250" />
+
+            <Button fx:id="details" mnemonicParsing="false" prefHeight="35.0" prefWidth="90" text="Details" onAction="#detailsButtonPressed"/>
+            <Button fx:id="insertButtonApi" minWidth="109" onAction="#insertButtonApiPressed" prefHeight="35.0" prefWidth="150.0" text="Insert Using Api" textAlignment="CENTER" />
+            <Button fx:id="insertButton" onAction="#insertButtonPressed" prefHeight="35.0" prefWidth="90" text="Insert" textAlignment="CENTER" />
+            <Button fx:id="deleteButton" onAction="#deleteButtonPressed" prefHeight="35" prefWidth="90" text="Delete" textAlignment="CENTER" />
+
+        </HBox>
+    </bottom>
+
+</BorderPane>

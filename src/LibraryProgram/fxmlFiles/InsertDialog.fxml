@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane fx:id="BookInsertDialog" prefHeight="372.0" prefWidth="438.0" stylesheets="@../Css/BookDialogCss.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.InsertDialogController">
+
+
+    <headerText>
+        Adding A New Book:
+    </headerText>
+    <padding>
+        <Insets bottom="20" left="20" top="20" />
+    </padding>
+    <content>
+        <GridPane hgap="20" prefHeight="327.0" prefWidth="418.0" vgap="10">
+            <Label fx:id="InsertBookName" text="Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Label fx:id="InsertBookPrice" text="Price" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Label fx:id="InsertBookQuantity" text="Quantity" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Label fx:id="InsertBookIsbn" text="ISBN" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <TextField fx:id="nameTextField" prefHeight="26.0" prefWidth="234.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <TextField fx:id="priceTextField" prefWidth="350" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="quantityTextField" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="isbnTextField" prefHeight="26.0" prefWidth="262.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+            <Label prefHeight="20.0" prefWidth="76.0" text="Optional:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <Label text="Author" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+            <Label text="Publisher" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+            <Label prefHeight="20.0" prefWidth="135.0" text="Date Published" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+            <Label text="Image:" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+
+            <TextField fx:id="authorTextField" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="publisherTextField" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="dateTextField" prefHeight="26.0" prefWidth="210.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Button onAction="#chooseImageButtonPressed" prefHeight="26.0" prefWidth="112.0" text="Choose Image:" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+
+            <columnConstraints>
+            <ColumnConstraints maxWidth="321.6" minWidth="65.0" prefWidth="113.0" />
+            <ColumnConstraints maxWidth="253.4" minWidth="0.0" prefWidth="208.6" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+
+        </GridPane>
+    </content>
+</DialogPane>

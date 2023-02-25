@@ -1,0 +1,10 @@
+#passwordCheckingDialog{
+    -fx-background-color: white;
+}
+#passwordCheckingDialog Label{
+    -fx-alignment: center;
+    -fx-text-fill:#2D333F;
+    -fx-font-family: "Times New Roman";
+    -fx-font-weight: bold;
+    -fx-font-size: 13pt;
+}
