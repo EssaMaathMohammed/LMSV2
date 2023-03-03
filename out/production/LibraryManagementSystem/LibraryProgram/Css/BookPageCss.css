@@ -4,33 +4,33 @@
 }
 #addButton{
     -fx-text-fill:#ABEEFE;
-    -fx-font-family: "Arial Narrow";
+    -fx-font-family: "Times New Roman";
     -fx-font-weight: bold;
-    -fx-font-size: 34;
+    -fx-font-size: 25;
     -fx-background-color: #354F91;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
 #addButton:hover{
-    -fx-font-family: "Arial Narrow";
+    -fx-font-family: "Times New Roman";
     -fx-background-color: #ABEEFE;
     -fx-text-fill:#354F91;
      -fx-font-weight:bold;
-    -fx-font-size: 34;
+    -fx-font-size: 25;
 }
 #homePage{
     -fx-text-fill: #ABEEFE;
-    -fx-font-family: "Arial Narrow";
+    -fx-font-family: "Times New Roman";
     -fx-font-weight: bold;
-    -fx-font-size: 34;
+    -fx-font-size: 25;
     -fx-background-color:#354F91;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
 #homePage:hover{
     -fx-background-color: #ABEEFE;
     -fx-text-fill:#354F91;
-    -fx-font-family: "Arial Narrow";
+    -fx-font-family: "Times New Roman";
     -fx-font-weight:bold;
-    -fx-font-size: 34;
+    -fx-font-size: 25;
 }
 #sectionScrollPane{
     -fx-background-color:linear-gradient(to bottom, #79E6FB, #0056EB);

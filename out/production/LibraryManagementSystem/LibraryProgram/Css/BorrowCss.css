@@ -15,17 +15,17 @@
 }
 #homePage,#searchOne,#insert,#return,#delete,#searchTwo,#searchBetween{
     -fx-text-fill:   white;
-    -fx-font-family: "Arial Narrow";
+    -fx-font-family: "Times New Roman";
     -fx-font-weight: bold;
-    -fx-font-size: 34;
+    -fx-font-size: 20;
     -fx-background-color: #354F91;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
 #homePage:hover,#searchOne:hover,#insert:hover,#return:hover,#delete:hover,
 #searchTwo:hover,#searchBetween:hover{
     -fx-background-color:  white;
-    -fx-font-family: "Arial Narrow";
+    -fx-font-family: "Times New Roman";
     -fx-text-fill:#354F91;
     -fx-font-weight:bold;
-    -fx-font-size: 34;
+    -fx-font-size: 20;
 }

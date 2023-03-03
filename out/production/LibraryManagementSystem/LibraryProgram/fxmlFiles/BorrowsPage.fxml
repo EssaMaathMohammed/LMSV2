@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="borrowBorderPane"  stylesheets="@../Css/BorrowCss.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.BorrowsPageController">
+<BorderPane fx:id="borrowBorderPane" minWidth="1550" stylesheets="@../Css/BorrowCss.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.BorrowsPageController">
     <top>
         <HBox>
         <HBox>
@@ -13,26 +13,26 @@
             </padding>
             <Label fx:id="borrow" text="Borrows:" textAlignment="CENTER" />
         </HBox>
-        <VBox alignment="TOP_RIGHT" prefHeight="86.0" prefWidth="257.0" spacing="10">
+        <VBox alignment="TOP_RIGHT" prefHeight="94.0" prefWidth="290.0" spacing="10">
             <padding>
                 <Insets bottom="20" left="40" right="10" top="20" />
             </padding>
         </VBox>
-         <Button fx:id="homePage" onAction="#navigation" prefHeight="40.0" prefWidth="120.0" text="Back">
+         <Button fx:id="homePage" onAction="#navigation" prefHeight="36.0" prefWidth="76.0" text="Back">
             <HBox.margin>
-               <Insets top="10.0" />
+               <Insets top="15.0" />
             </HBox.margin></Button>
         </HBox>
     </top>
 
     <center>
-        <VBox prefHeight="393.0" prefWidth="1600.0" spacing="10">
+        <VBox minHeight="350" spacing="10">
             <padding>
                 <Insets left="10" right="10" top="10" />
             </padding>
 
             <HBox spacing="10">
-            <TableView fx:id="BorrowedTableView" prefHeight="300.0" prefWidth="1498.0">
+            <TableView fx:id="BorrowedTableView" maxHeight="270">
                 <columns>
                     <TableColumn fx:id="firstName" prefWidth="132.00000894069672" text="First Name" />
                     <TableColumn fx:id="lastName" prefWidth="147.99998474121094" text="Middle Name" />
@@ -47,34 +47,34 @@
             </TableView>
 
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="64.0" prefWidth="1579.0" spacing="10">
+            <HBox alignment="CENTER_LEFT" spacing="10">
                 <TextField fx:id="searchTextField" prefHeight="35.0" prefWidth="282.0" promptText="Member ID" />
-                <Button fx:id="searchOne" onAction="#searchButtonPressed" prefHeight="36.0" prefWidth="118.0" text="Search" textAlignment="CENTER" />
-                    <Button fx:id="insert" onAction="#insertButtonPressed" prefHeight="35.0" prefWidth="171.0" text="Add a New Borrow" textAlignment="CENTER" />
-                    <Button fx:id="return" onAction="#returnButtonPressed" prefHeight="34.0" prefWidth="105.0" text="Returned" textAlignment="CENTER" />
+                <Button fx:id="searchOne" onAction="#searchButtonPressed"  text="Search" textAlignment="CENTER" />
+                    <Button fx:id="insert" onAction="#insertButtonPressed"  text="Add a New Borrow" textAlignment="CENTER" />
+                    <Button fx:id="return" onAction="#returnButtonPressed"  text="Returned" textAlignment="CENTER" />
             </HBox>
         </VBox>
     </center>
     <bottom>
-        <VBox prefHeight="568.0" prefWidth="1600" spacing="10">
-        <TableView fx:id="ReturnedTableView" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="1499.0">
+        <VBox minHeight="350" spacing="10">
+        <TableView fx:id="ReturnedTableView" maxHeight="270" maxWidth="1510">
             <columns>
                 <TableColumn fx:id="firstNameR" prefWidth="128.0000194311142" text="First Name" />
-                <TableColumn fx:id="lastNameR" prefWidth="152.0" text="Middle Name" />
-                <TableColumn fx:id="bookNameR" prefWidth="245.99996948242188" text="Name of The Book" />
+                <TableColumn fx:id="lastNameR" prefWidth="150.0" text="Middle Name" />
+                <TableColumn fx:id="bookNameR" prefWidth="240.99996948242188" text="Name of The Book" />
                 <TableColumn fx:id="mIdR" prefWidth="162.0" text="Member ID" />
                 <TableColumn fx:id="borrowDateR" prefWidth="151.60003662109375" text="Borrow Date" />
                 <TableColumn fx:id="dueDateR" prefWidth="147.199951171875" text="Due Date" />
-                <TableColumn fx:id="returnDateR" prefWidth="162.4000244140625" text="Return Date" />
+                <TableColumn fx:id="returnDateR" prefWidth="160.4000244140625" text="Return Date" />
                 <TableColumn fx:id="quantityR" prefWidth="117.4000244140625" text="Quantity" />
-                <TableColumn fx:id="isbnIdR" prefWidth="241.199951171875" text="ISBN" />
+                <TableColumn fx:id="isbnIdR" prefWidth="240.199951171875" text="ISBN" />
             </columns>
         </TableView>
-        <HBox prefHeight="201.0" prefWidth="0.0" spacing="10">
+        <HBox spacing="10">
             <Button fx:id="delete" onAction="#deleteButtonPressed" prefHeight="34.0" prefWidth="111.0" text="Delete" textAlignment="CENTER" />
                 <TextField fx:id="search2TextField" prefHeight="35.0" prefWidth="282.0" promptText="Member ID" />
-                <Button fx:id="searchTwo" onAction="#searchButtonPressed" prefHeight="33.0" prefWidth="110.0" text="Search" textAlignment="CENTER" />
-            <Button fx:id="searchBetween" onAction="#searchBetweenButtonPressed" prefHeight="34.0" prefWidth="148.0" text="Search Between" textAlignment="CENTER" />
+                <Button fx:id="searchTwo" onAction="#searchButtonPressed"   text="Search" textAlignment="CENTER" />
+            <Button fx:id="searchBetween" onAction="#searchBetweenButtonPressed"  text="Search Between" textAlignment="CENTER" />
         </HBox>
             <padding>
                 <Insets bottom="10" left="10" right="10" top="10" />

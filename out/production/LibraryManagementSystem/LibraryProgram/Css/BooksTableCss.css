@@ -13,16 +13,16 @@
  }
  #SectionPage,#findByName,#insertButtonApi,#insertButton,#deleteButton,#details,#back{
      -fx-text-fill:  white;
-     -fx-font-family: "Arial Narrow";
+     -fx-font-family: "Times New Roman";
      -fx-font-weight: bold;
-     -fx-font-size: 34;
+     -fx-font-size: 20;
      -fx-background-color: #354F91;
      -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
  }
  #SectionPage:hover,#findByName:hover,#insertButtonApi:hover,#insertButton:hover,#back:hover,#deleteButton:hover,#details:hover{
      -fx-background-color:  white;
-     -fx-font-family: "Arial Narrow";
+     -fx-font-family: "Times New Roman";
      -fx-text-fill:#354F91;
      -fx-font-weight:bold;
-     -fx-font-size: 34;
+     -fx-font-size: 20;
  }
