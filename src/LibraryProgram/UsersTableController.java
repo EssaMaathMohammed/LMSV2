@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
@@ -40,6 +41,7 @@ public class UsersTableController {
 
     private Connection connection;
     public void initialize() {
+        usersBorderPane.getCenter().maxHeight(500);
         userList = FXCollections.observableArrayList();
 
         id.setCellValueFactory(new PropertyValueFactory<>("Id"));
@@ -94,9 +96,10 @@ public class UsersTableController {
     }
 
     public void navigation(ActionEvent actionEvent) {
-        FxmlLoader fxmlLoader = new FxmlLoader();
-        Pane pane = fxmlLoader.getView("HomePage");
-        usersBorderPane.getChildren().setAll(pane);
+        FxmlLoader generalFxmlLoader = new FxmlLoader();
+        Pane pane = generalFxmlLoader.getView("HomePage");
+        Scene scene = new Scene(pane);
+        LibLauncher.applicationStage.setScene(scene);
     }
 
     public void deleteButtonPressed(ActionEvent actionEvent) {

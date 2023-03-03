@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
@@ -17,7 +18,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Optional;
 
 public class BookingPageController {
@@ -45,6 +48,9 @@ public class BookingPageController {
     private PreparedStatement INSERT_INTO_BORROWS;
     private PreparedStatement SELECT_BOOK_QUANTITY;
     private PreparedStatement UPDATE_BOOK_AMOUNT;
+    private PreparedStatement SELECT_BORROW_DUE_DATES;
+    private PreparedStatement SELECT_BORROW_DUE_DATES_COUNT;
+    private PreparedStatement SELECT_BOOKING_INFORMATION;
     Connection connection;
     private static ObservableList<Booking> data;
     String employeeLog = "logs\\" + LoginController.employeeFileName;
@@ -52,6 +58,8 @@ public class BookingPageController {
 
 
     public void initialize(){
+        bookingBorderPane.getCenter().maxHeight(500);
+
         orderId.setCellValueFactory(new PropertyValueFactory<>("orderId"));
         memberIdColumn.setCellValueFactory(new PropertyValueFactory<>("memberId"));
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
@@ -92,6 +100,10 @@ public class BookingPageController {
 
             SELECT_BOOK_QUANTITY = connection.prepareStatement("SELECT QUANTITY FROM BOOKS WHERE ISBN = ?");
             UPDATE_BOOK_AMOUNT = connection.prepareStatement("UPDATE BOOKS SET QUANTITY = ? WHERE ISBN = ?");
+
+            SELECT_BORROW_DUE_DATES = connection.prepareStatement("SELECT DUE_DATE FROM borrow WHERE ISBN = ?  AND RETURN_DATE IS NULL");
+            SELECT_BORROW_DUE_DATES_COUNT = connection.prepareStatement("SELECT COUNT(*) FROM borrow WHERE ISBN = ?");
+            SELECT_BOOKING_INFORMATION = connection.prepareStatement("SELECT BOOKING_DATE, DUE_BOOKING_DATE FROM booking WHERE ISBN = ?");
 
             ResultSet resultSet = SELECT.executeQuery();
             updateTable(resultSet);
@@ -167,6 +179,13 @@ public class BookingPageController {
                 alert.showAndWait();
             }else {
                 try {
+
+                    boolean insertBook = true;
+                    long bookISBN = Long.parseLong(dialogController.isbnTextField.getText());
+                    Date[] datesArray = new Date[0];
+                    boolean isAfterDate = false;
+
+
                     String dateBookingString = dialogController.getBookingDateYear()+"-"+dialogController.getBookingDateMonth()+"-"+dialogController.getBookingDateDay();
                     String dateDueBooking = dialogController.getDueDateYear()+"-"+dialogController.getDueDateMonth()+"-"+dialogController.getDueDateDay();
                     Date date = Date.valueOf(dateBookingString);
@@ -176,24 +195,93 @@ public class BookingPageController {
                     String currentDateCompare = String.valueOf(currentDate);
                     Date currentDateCompared = Date.valueOf(currentDateCompare);
 
-                    if (date.before(currentDateCompared) || dueDate.before(currentDateCompared) || dueDate.before(date)) {
 
-                        displayAlert(Alert.AlertType.INFORMATION,"Date Error","The date you inputted is either before\nthe current date or the due date is before the\nbooking date");
+                    // the total number of the book in the library currently, to check whether we can book the book or not.
+                    SELECT_BOOK_QUANTITY.setLong(1, bookISBN);
+                    ResultSet quantityBook = SELECT_BOOK_QUANTITY.executeQuery();
+                    quantityBook.next();
+                    int currentBookQuantity = quantityBook.getInt("QUANTITY");
+                    quantityBook.close();
 
-                    }else{
-                        INSERT.setDate(1,date);
-                        INSERT.setDate(2,dueDate);
-                        INSERT.setLong(3,Long.parseLong(dialogController.getIsbnTextField()));
-                        INSERT.setString(4,dialogController.getMemberIdTextField());
-                        INSERT.executeUpdate();
+                    // check the book count if book count is 0 or 1, else insert normally
+                    if (currentBookQuantity == 0 || currentBookQuantity == 1) {
+                        if (currentBookQuantity == 0) {
+                            // bring the due dates of the borrow table.
+                            SELECT_BORROW_DUE_DATES.setLong(1,bookISBN);
+                            ResultSet BORROW_DUE_DATES_RESUL_SET = SELECT_BORROW_DUE_DATES.executeQuery();
 
-                        ResultSet resultSet = SELECT.executeQuery();
-                        updateTable(resultSet);
+                            // get the number of elements in the result set (how many due dates)
+                            SELECT_BORROW_DUE_DATES_COUNT.setLong(1,bookISBN);
+                            ResultSet DUE_DATES_COUNT_RESULT_SET = SELECT_BORROW_DUE_DATES_COUNT.executeQuery();
+                            DUE_DATES_COUNT_RESULT_SET.next();
+                            int datesArrayLength = DUE_DATES_COUNT_RESULT_SET.getInt(1);
+                            DUE_DATES_COUNT_RESULT_SET.close();
 
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Insert Information");
-                        alert.setContentText("A new Member has been inserted");
-                        alert.showAndWait();
+                            datesArray = new Date[datesArrayLength];
+                            for (int count = 0; count < datesArrayLength; count++) {
+                                BORROW_DUE_DATES_RESUL_SET.next();
+                                datesArray[count] = BORROW_DUE_DATES_RESUL_SET.getDate("DUE_DATE");
+                            }
+                            BORROW_DUE_DATES_RESUL_SET.close();
+
+                            // check if the date that the user entered is after one of the due dates
+
+                            for (Date borrowDueDate :
+                                    datesArray) {
+                                if (dueDate.after(borrowDueDate)) {
+                                    isAfterDate = true;
+                                    break;
+                                }
+                            }
+
+                        }
+                        // if the date that the user entered is not after one of the due dates we give the user an insert error
+                        if (!isAfterDate) {
+                            String dates = "";
+                            for (Date borrowDueDate :
+                                    datesArray) {
+                               dates += borrowDueDate.toString()+ " ";
+                            }
+                            System.out.printf("here");
+
+                            displayAlert(Alert.AlertType.ERROR,"Insert Error","The Book is not available in the dates you entered," +
+                                    "\nThe book is available after the following dates: " + dates);
+                            // do not let the user insert the book
+                            insertBook = false;
+                        }else {
+                            // otherwise we need to check for duplicates in the booking table
+
+
+                        }
+                        // check the booking table for duplicate dates, if the dates are duplicates don't let the user insert
+
+                    }
+
+                    // otherwise create the booking normally
+                    if (insertBook) {
+
+
+                        if (date.before(currentDateCompared) || dueDate.before(currentDateCompared) || dueDate.before(date)) {
+
+                            displayAlert(Alert.AlertType.INFORMATION,"Date Error","The date you inputted is either before\nthe current date or the due date is before the\nbooking date");
+
+                        }else{
+                            INSERT.setDate(1,date);
+                            INSERT.setDate(2,dueDate);
+                            INSERT.setLong(3,Long.parseLong(dialogController.getIsbnTextField()));
+                            INSERT.setString(4,dialogController.getMemberIdTextField());
+                            INSERT.executeUpdate();
+
+                            ResultSet resultSet = SELECT.executeQuery();
+                            updateTable(resultSet);
+
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Insert Information");
+                            alert.setContentText("A new Member has been inserted");
+                            alert.showAndWait();
+                        }
+
+
                     }
 
 //                    try {
@@ -217,6 +305,7 @@ public class BookingPageController {
                 }
                 catch (SQLException e) {
                     displayAlert(Alert.AlertType.ERROR,"DATABASE ERROR", e.getMessage());
+                    e.printStackTrace();
                 }
 
             }
@@ -318,13 +407,16 @@ public class BookingPageController {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setContentText(message);
+        alert.setWidth(400);
+        alert.setHeight(350);
         alert.showAndWait();
     }
 
     public void navigation(ActionEvent actionEvent) {
         FxmlLoader generalFxmlLoader = new FxmlLoader();
         Pane pane = generalFxmlLoader.getView("HomePage");
-        bookingBorderPane.getChildren().setAll(pane);
+        Scene scene = new Scene(pane);
+        LibLauncher.applicationStage.setScene(scene);
     }
 
 

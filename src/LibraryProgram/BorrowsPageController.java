@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -92,6 +93,7 @@ public class BorrowsPageController {
     private Connection connection;
 
     public void initialize(){
+        borrowBorderPane.getCenter().maxHeight(500);
 
         data = FXCollections.observableArrayList();
         data2 = FXCollections.observableArrayList();
@@ -349,7 +351,6 @@ public class BorrowsPageController {
                                 totalBooksResultSet.next();
                                 int totalBooks = totalBooksResultSet.getInt(1);
                                 totalBooksResultSet.close();
-                                System.out.println("Hello5");
                                 // if they changed the amount we need to manually update this ***************************************************************************
                                 if (totalBooks >= 2) { // if the total quantity is equal to two
                                     displayAlert(Alert.AlertType.INFORMATION, "Books Quantity Error",
@@ -792,8 +793,10 @@ public class BorrowsPageController {
     }
 
     public void navigation(ActionEvent actionEvent) {
-            Pane pane = fxmlLoader.getView("HomePage");
-            borrowBorderPane.getChildren().setAll(pane);
+        FxmlLoader generalFxmlLoader = new FxmlLoader();
+        Pane pane = generalFxmlLoader.getView("HomePage");
+        Scene scene = new Scene(pane);
+        LibLauncher.applicationStage.setScene(scene);
     }
 
     private void displayAlert(Alert.AlertType alertType ,String title , String  message){

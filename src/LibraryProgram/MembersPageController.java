@@ -11,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -81,6 +82,7 @@ public class MembersPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        memberBorderPane.getCenter().maxHeight(500);
         data = FXCollections.observableArrayList();
         memberIdColumn.setCellValueFactory(new PropertyValueFactory<>("m_id"));
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("first_name"));
@@ -499,8 +501,10 @@ public class MembersPageController implements Initializable {
     }
 
     public void navigation(ActionEvent actionEvent) {
-            Pane pane = fxmlLoader.getView("HomePage");
-            memberBorderPane.getChildren().setAll(pane);
+        FxmlLoader generalFxmlLoader = new FxmlLoader();
+        Pane pane = generalFxmlLoader.getView("HomePage");
+        Scene scene = new Scene(pane);
+        LibLauncher.applicationStage.setScene(scene);
     }
 
     private void displayAlert(Alert.AlertType alertType ,String title , String  message){

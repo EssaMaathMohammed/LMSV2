@@ -67,6 +67,7 @@ public class HomePageController {
         if (mouseEvent.getSource().toString().equals(booksPage.toString())) {
             Pane pane = generalFxmlLoader.getView("BooksPage");
             Scene scene = new Scene(pane);
+
             LibLauncher.applicationStage.setScene(scene);
         }else if (mouseEvent.getSource().toString().equals(borrowsPage.toString())) {
             Pane pane = generalFxmlLoader.getView("BorrowsPage");
@@ -121,6 +122,7 @@ public class HomePageController {
                 }
             }
         }
+
     }
 
     private void displayAlert(Alert.AlertType alertType ,String title , String  message){

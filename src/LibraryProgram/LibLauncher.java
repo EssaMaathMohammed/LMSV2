@@ -18,11 +18,8 @@ public class LibLauncher extends Application {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("SPU Library");
-
-        stage.setWidth(1535.0);
-        stage.setHeight(800);
+        stage.isMaximized();
         stage.getIcons().add(new Image("/resources/image0.png"));
-        stage.setIconified(true);
         stage.show();
     }
 

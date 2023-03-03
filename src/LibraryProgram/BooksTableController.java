@@ -77,6 +77,7 @@ public class BooksTableController {
     private ContextMenu listContextMenu;
 
     public void initialize(){
+        tableBorderPane.getCenter().maxHeight(500);
 
         // right click to copy the isbn of an item
         listContextMenu = new ContextMenu();
@@ -395,15 +396,16 @@ public class BooksTableController {
     }
 
     public void navigation(ActionEvent actionEvent) {
-        FxmlLoader fxmlLoader = new FxmlLoader();
-        Pane pane = fxmlLoader.getView("HomePage");
-        tableBorderPane.getChildren().setAll(pane);
+        FxmlLoader generalFxmlLoader = new FxmlLoader();
+        Pane pane = generalFxmlLoader.getView("HomePage");
+        Scene scene = new Scene(pane);
+        LibLauncher.applicationStage.setScene(scene);
     }
     public void navigationback(ActionEvent actionEvent) {
-        FxmlLoader fxmlLoader = new FxmlLoader();
-        Pane pane = fxmlLoader.getView("BooksPage");
-        Scene booksPageScene = new Scene(pane);
-        LibLauncher.applicationStage.setScene(booksPageScene);
+        FxmlLoader generalFxmlLoader = new FxmlLoader();
+        Pane pane = generalFxmlLoader.getView("BooksPage");
+        Scene scene = new Scene(pane);
+        LibLauncher.applicationStage.setScene(scene);
     }
 
 

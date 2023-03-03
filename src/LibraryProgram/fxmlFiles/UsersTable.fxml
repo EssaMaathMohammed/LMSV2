@@ -2,21 +2,20 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="usersBorderPane" stylesheets="@../Css/UsersPageCss.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.UsersTableController">
+<BorderPane fx:id="usersBorderPane" minWidth="1550" stylesheets="@../Css/UsersPageCss.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.UsersTableController">
 
     <top>
         <HBox>
-            <HBox alignment="CENTER" prefHeight="78.0" prefWidth="476.0">
+            <HBox alignment="CENTER">
                 <padding>
                     <Insets bottom="10" left="40" right="40" top="20" />
                 </padding>
-                <Label fx:id="usersLabel" alignment="CENTER" prefHeight="46.0" prefWidth="349.0" text="Users:" />
+                <Label fx:id="usersLabel" alignment="CENTER" text="Users:" />
             </HBox>
-            <VBox alignment="TOP_RIGHT" prefHeight="78.0" prefWidth="948.0" spacing="10">
-                <Button fx:id="SectionPage" onAction="#navigation" prefHeight="58.0" prefWidth="138.0" text="Back" translateX="70" />
+            <VBox alignment="TOP_RIGHT" prefHeight="84.0" prefWidth="1248.0" spacing="10">
+                <Button fx:id="SectionPage" onAction="#navigation" text="Back" translateX="70" />
                 <padding>
                     <Insets bottom="10" right="10" top="10" />
                 </padding>
@@ -29,7 +28,7 @@
             <padding>
                 <Insets bottom="10" left="50" right="10" />
             </padding>
-            <TableView fx:id="userTable" prefHeight="630.0" prefWidth="1208.0">
+            <TableView fx:id="userTable" minHeight="600" prefHeight="600.0" prefWidth="1449.0">
                 <columns>
                     <TableColumn fx:id="id" prefWidth="278.0000228881836" text="User ID" />
                     <TableColumn fx:id="userName" minWidth="0.0" prefWidth="296.6000671386719" text="Username" />
@@ -37,14 +36,10 @@
                     <TableColumn fx:id="type" prefWidth="296.20001220703125" text="Type" />
                 </columns>
             </TableView>
-            <ImageView fitHeight="250" fitWidth="250" translateY="150">
-                <Image url="@../../resources/lead-generation-1.png" />
-
-            </ImageView>
         </HBox>
     </center>
     <bottom>
-        <HBox prefHeight="206.0" prefWidth="1600.0" spacing="20">
+        <HBox minHeight="300" spacing="10">
             <padding>
                 <Insets bottom="20" left="50" right="10" top="13" />
             </padding>
@@ -54,12 +49,12 @@
             </VBox>
             <HBox spacing="15">
                 <padding>
-                    <Insets top="18"/>
+                    <Insets top="26" />
                 </padding>
 
-                <Button fx:id="searchButton" onAction="#SearchButtonPressed" prefHeight="44.0" prefWidth="170.0" text="Search" />
-                <Button fx:id="deleteButton" onAction="#deleteButtonPressed" prefHeight="44.0" prefWidth="163.0" text="Delete " />
-                <Button fx:id="insertButton" onAction="#InsertButtonPressed" prefHeight="44.0" prefWidth="170.0" text="Insert" />
+                <Button fx:id="searchButton" onAction="#SearchButtonPressed" text="Search" />
+                <Button fx:id="deleteButton" onAction="#deleteButtonPressed" text="Delete " />
+                <Button fx:id="insertButton" onAction="#InsertButtonPressed" text="Insert" />
 
             </HBox>
 

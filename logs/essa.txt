@@ -78,3 +78,12 @@ Inserted "test one"  That Borrowed "BookOne" At 2:35:15
 Assigned "test one" that borrowed "BookOne" On 2021-08-10 And Returned It On 2021-08-10 At 2:35:15
 Deleted "test one" that was borrowed on 2021-08-10 At 2:36:30
 Assigned "test one" that borrowed "BookOne" On 2021-08-11 And Returned It On 2021-08-11 At 2:37:11
+Inserted "test one"  That Borrowed "book 2" At 9:30:14
+Inserted "test one"  That Borrowed "BookOne" At 10:22:17
+Deleted "test one" that was borrowed on 2021-08-11 At 10:25:12
+Deleted "test onewho was booking 2 At 10:26:49
+Deleted "test onewho was booking 1 At 10:26:49
+Deleted "test onewho was booking 2 At 10:26:49
+Deleted "test onewho was booking 1 At 10:26:49
+Deleted "test onewho was booking 2 At 10:26:49
+Inserted "Nada Qasim"  That Borrowed "BookOne" At 10:27:12

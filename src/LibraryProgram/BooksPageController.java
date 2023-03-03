@@ -3,6 +3,7 @@ package LibraryProgram;
 import LibraryProgram.fxmlFiles.FxmlLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -35,6 +36,7 @@ public class BooksPageController {
     private Connection connection;
 
     public void initialize(){
+        booksPageBorderPane.getCenter().maxHeight(500);
 
         column = 2;
         row = 0;
@@ -158,9 +160,10 @@ public class BooksPageController {
     }
 
     public void navigation(ActionEvent actionEvent) {
-
-        Pane pane = fxmlLoader.getView("HomePage");
-        booksPageBorderPane.getChildren().setAll(pane);
+        FxmlLoader generalFxmlLoader = new FxmlLoader();
+        Pane pane = generalFxmlLoader.getView("HomePage");
+        Scene scene = new Scene(pane);
+        LibLauncher.applicationStage.setScene(scene);
     }
 
     private void displayAlert(Alert.AlertType alertType ,String title , String  message){
