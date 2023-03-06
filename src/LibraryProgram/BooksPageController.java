@@ -46,7 +46,6 @@ public class BooksPageController {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/spulibdb","root","");
 
             GET_SECTION = connection.prepareStatement("SELECT DISTINCT SECTION FROM BOOKS");
-            Statement statement = connection.createStatement();
             ResultSet resultSet = GET_SECTION.executeQuery();
             ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
 
@@ -92,8 +91,7 @@ public class BooksPageController {
         }
     }
 
-    public void addButtonPressed(ActionEvent actionEvent) {
-
+    public void addButtonPressed(ActionEvent actionEvent) throws SQLException {
         Dialog<ButtonType> dialog = new Dialog<>();
 
         dialog.initOwner(sectionGridPane.getScene().getWindow());
@@ -121,30 +119,44 @@ public class BooksPageController {
                 alert1.setHeaderText("You need to fill the field before adding a new section");
                 alert1.showAndWait();
             }else {
-                ButtonSections newButton = dialogController.newButton();
-                newButton.setOnAction(actionEvent1 -> {
-                    try {
-                        sectionButtonPressed(actionEvent1);
-                    } catch (IOException e) {
-                        displayAlert(Alert.AlertType.ERROR , "PATH ERROR" , e.getMessage());
-                    }
-                });
 
-                if (column == sectionGridPane.getColumnCount()) {
-                    row++;
-                    column = 0;
+                String bookName = dialogController.nameTextField.getText().trim();
+                bookName = bookName.substring(0,1).toUpperCase() + bookName.substring(1).toLowerCase();
+                System.out.println(bookName);
+                // checks if the sections exists
+                ResultSet BOOK_SECTIONS_RESULT_SET = GET_SECTION.executeQuery();
+                List<String> sections_list = new ArrayList<>();
+
+                while (BOOK_SECTIONS_RESULT_SET.next()) {
+                    sections_list.add(BOOK_SECTIONS_RESULT_SET.getString("SECTION"));
                 }
-                sectionGridPane.add(newButton,column++,row);
-                buttons.add(newButton);
 
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Insert Information");
-                alert.setContentText("A new Section has been inserted");
-                alert.showAndWait();
+                if (sections_list.contains(bookName) || bookName.equals("+") || bookName.equals("All books")) {
+                    displayAlert(Alert.AlertType.ERROR , "Insert Error" , "Section Already Exists!");
+                }else {
+                    ButtonSections newButton = dialogController.newButton(bookName);
+                    newButton.setOnAction(actionEvent1 -> {
+                        try {
+                            sectionButtonPressed(actionEvent1);
+                        } catch (IOException e) {
+                            displayAlert(Alert.AlertType.ERROR , "PATH ERROR" , e.getMessage());
+                        }
+                    });
+
+                    if (column == sectionGridPane.getColumnCount()) {
+                        row++;
+                        column = 0;
+                    }
+                    sectionGridPane.add(newButton,column++,row);
+                    buttons.add(newButton);
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Insert Information");
+                    alert.setContentText("A new Section has been inserted");
+                    alert.showAndWait();
+                }
             }
-
         }
-
     }
 
     private void sectionButtonPressed(ActionEvent actionEvent1) throws IOException{

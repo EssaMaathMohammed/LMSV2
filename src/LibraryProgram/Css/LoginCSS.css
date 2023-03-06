@@ -3,12 +3,12 @@
 }
 #welcomeLabel{
     -fx-text-fill: #266CA0;
-    -fx-font:bold 50pt "Times New Roman" ;
+    -fx-font:bold 55pt "Times New Roman" ;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
 #welcome{
     -fx-text-fill: #266CA0;
-    -fx-font:bold 30pt "Times New Roman" ;
+    -fx-font:bold 34pt "Times New Roman" ;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
 #link{
@@ -36,7 +36,7 @@
 .loginVbox{
     -fx-border-radius: 100;
     -fx-background-image: url('../../resources/Xiaomi-Redmi-Note-5A-Stock-Wallpaper-02-1080x1920.jpg');
-    -fx-background-size: 500 800;
+    -fx-background-size: 660 960;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 40, 0.0 , 0 , 1 );
 }
 .text{

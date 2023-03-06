@@ -17,11 +17,9 @@ import javafx.scene.layout.Pane;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
+import java.sql.Date;
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class BookingPageController {
     public TextField searchMID;
@@ -103,7 +101,7 @@ public class BookingPageController {
 
             SELECT_BORROW_DUE_DATES = connection.prepareStatement("SELECT DUE_DATE FROM borrow WHERE ISBN = ?  AND RETURN_DATE IS NULL");
             SELECT_BORROW_DUE_DATES_COUNT = connection.prepareStatement("SELECT COUNT(*) FROM borrow WHERE ISBN = ?");
-            SELECT_BOOKING_INFORMATION = connection.prepareStatement("SELECT BOOKING_DATE, DUE_BOOKING_DATE FROM booking WHERE ISBN = ?");
+            SELECT_BOOKING_INFORMATION = connection.prepareStatement("SELECT BOOKING_DATE, DUE_BOOKING_DATE FROM booking WHERE ISBN = ? ORDER BY DUE_BOOKING_DATE ASC;");
 
             ResultSet resultSet = SELECT.executeQuery();
             updateTable(resultSet);
@@ -218,43 +216,69 @@ public class BookingPageController {
                             DUE_DATES_COUNT_RESULT_SET.close();
 
                             datesArray = new Date[datesArrayLength];
-                            for (int count = 0; count < datesArrayLength; count++) {
-                                BORROW_DUE_DATES_RESUL_SET.next();
-                                datesArray[count] = BORROW_DUE_DATES_RESUL_SET.getDate("DUE_DATE");
+                            for (int count = 0; count < datesArrayLength - 1; count++) {
+                                if (BORROW_DUE_DATES_RESUL_SET.next()) {
+                                    datesArray[count] = BORROW_DUE_DATES_RESUL_SET.getDate("DUE_DATE");
+                                }else {
+                                    System.out.println("nothing available");
+                                    break;
+                                }
                             }
                             BORROW_DUE_DATES_RESUL_SET.close();
 
                             // check if the date that the user entered is after one of the due dates
-
                             for (Date borrowDueDate :
                                     datesArray) {
-                                if (dueDate.after(borrowDueDate)) {
-                                    isAfterDate = true;
-                                    break;
+                                if (date != null && borrowDueDate != null) {
+                                    if (date.after(borrowDueDate)) {
+                                        // which one of the due dates is it after ?
+                                        isAfterDate = true;
+                                        break;
+                                    }
                                 }
                             }
-
                         }
                         // if the date that the user entered is not after one of the due dates we give the user an insert error
-                        if (!isAfterDate) {
+                        if (!isAfterDate && currentBookQuantity == 0) {
                             String dates = "";
                             for (Date borrowDueDate :
                                     datesArray) {
-                               dates += borrowDueDate.toString()+ " ";
+                                if (borrowDueDate != null) {
+                                    dates += borrowDueDate.toString()+ " ";
+                                }else {
+                                    System.out.println("nothing 2");
+                                }
                             }
-                            System.out.printf("here");
-
                             displayAlert(Alert.AlertType.ERROR,"Insert Error","The Book is not available in the dates you entered," +
                                     "\nThe book is available after the following dates: " + dates);
                             // do not let the user insert the book
                             insertBook = false;
                         }else {
+                            List<Date> errorDatesList = new ArrayList<Date>();
                             // otherwise we need to check for duplicates in the booking table
+                            // bring the booking table based on the ISBN of the book
+                            SELECT_BOOKING_INFORMATION.setLong(1,bookISBN);
+                            ResultSet BOOKING_RESULT_SET = SELECT_BOOKING_INFORMATION.executeQuery();
+                            while (BOOKING_RESULT_SET.next()) {
+                                errorDatesList.add(BOOKING_RESULT_SET.getDate("DUE_BOOKING_DATE"));
+                                if (date.after(BOOKING_RESULT_SET.getDate("DUE_BOOKING_DATE"))) {
+                                    insertBook = true;
+                                    break;
+                                }
+                                insertBook = false;
+                            }
 
-
+                            if (!insertBook) {
+                                StringBuilder dates = new StringBuilder();
+                                for (Date item : errorDatesList){
+                                    dates.append(item).append(" ");
+                                }
+                                Alert alert = new Alert(Alert.AlertType.ERROR);
+                                alert.setTitle("Insert Error");
+                                alert.setContentText("Booking for this book is only available after the following dates:\n" + dates);
+                                alert.showAndWait();
+                            }
                         }
-                        // check the booking table for duplicate dates, if the dates are duplicates don't let the user insert
-
                     }
 
                     // otherwise create the booking normally
@@ -277,7 +301,7 @@ public class BookingPageController {
 
                             Alert alert = new Alert(Alert.AlertType.INFORMATION);
                             alert.setTitle("Insert Information");
-                            alert.setContentText("A new Member has been inserted");
+                            alert.setContentText("A new booking has been inserted");
                             alert.showAndWait();
                         }
 

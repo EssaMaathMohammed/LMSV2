@@ -4,12 +4,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="tableBorderPane" minWidth="1550" stylesheets="@../Css/BooksTableCss.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.BooksTableController">
+<BorderPane fx:id="tableBorderPane" prefHeight="854" prefWidth="1600.0" stylesheets="@../Css/BooksTableCss.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.BooksTableController">
 
     <top>
-        <HBox >
+        <HBox>
 
-        <HBox minWidth="1320">
+        <HBox minWidth="1376.0" prefHeight="104.0" prefWidth="1376.0">
             <padding>
                 <Insets bottom="10" left="40" right="40" top="20" />
             </padding>
@@ -30,7 +30,7 @@
             <padding>
                 <Insets bottom="10" left="20" right="10" />
             </padding>
-                <TableView fx:id="bookTableView" minHeight="600">
+                <TableView fx:id="bookTableView" minHeight="600" prefHeight="609.0" prefWidth="1551.0">
                     <columns>
                         <TableColumn fx:id="nameColumn" onEditCommit="#editCell" prefWidth="464.8000068664551" text="Book Name" />
                         <TableColumn fx:id="availability" minWidth="0.0" prefWidth="155.19998168945312" text="Available" />
@@ -45,7 +45,7 @@
     </center>
 
     <bottom>
-        <HBox minHeight="300" spacing="20">
+        <HBox spacing="20">
             <padding>
                 <Insets bottom="10" left="20" top="30" />
             </padding>

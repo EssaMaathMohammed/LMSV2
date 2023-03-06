@@ -5,11 +5,11 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="booksPageBorderPane"  stylesheets="@../Css/BookPageCss.css" minWidth="1550"
+<BorderPane fx:id="booksPageBorderPane"  stylesheets="@../Css/BookPageCss.css" prefHeight="854" prefWidth="1600.0"
             xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.BooksPageController">
 
     <left>
-        <VBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="335.0" spacing="10">
+        <VBox alignment="TOP_CENTER"   spacing="10">
             <Button fx:id="homePage" onAction="#navigation" prefHeight="70" prefWidth="200" text="Back" />
             <ImageView fitHeight="350" fitWidth="350" translateY="350">
                 <Image url="@../../resources/Vision.png" />
@@ -24,8 +24,8 @@
     </padding>
     <center>
         <VBox>
-            <ScrollPane fx:id="sectionScrollPane" minHeight="1000" >
-                <GridPane fx:id="sectionGridPane" hgap="30"  vgap="25" minHeight="1000" minWidth="1410">
+            <ScrollPane fx:id="sectionScrollPane" prefHeight="800" >
+                <GridPane fx:id="sectionGridPane" hgap="30" prefHeight="800" vgap="25"  >
                     <padding>
                         <Insets left="10" top="10" />
                     </padding>

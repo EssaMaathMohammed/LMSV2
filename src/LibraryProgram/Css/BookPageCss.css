@@ -1,5 +1,6 @@
 #booksPageBorderPane{
-    -fx-background-color: linear-gradient(to bottom, #79E6FB, #0056EB);
+    -fx-background-image: url('../../resources/bg2.jpg');
+    -fx-background-size:1792 1190 ;
 
 }
 #addButton{
@@ -33,8 +34,10 @@
     -fx-font-size: 25;
 }
 #sectionScrollPane{
-    -fx-background-color:linear-gradient(to bottom, #79E6FB, #0056EB);
+    -fx-background: transparent;
+    -fx-background-color: transparent;
 }
 GridPane{
-    -fx-background-color: linear-gradient(to bottom, #79E6FB, #0056EB);
+    -fx-background: transparent;
+    -fx-background-color: transparent;
 }

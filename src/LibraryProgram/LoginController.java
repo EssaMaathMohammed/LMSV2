@@ -5,6 +5,7 @@ import LibraryProgram.fxmlFiles.FxmlLoader;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.*;
@@ -105,7 +106,8 @@ public class LoginController  {
 
                 FxmlLoader fxmlLoader = new FxmlLoader();
                 Pane pane = fxmlLoader.getView("HomePage");
-                loginPage.getChildren().setAll(pane);
+                Scene scene = new Scene(pane);
+                LibLauncher.applicationStage.setScene(scene);
                 present = true;
             }
         }

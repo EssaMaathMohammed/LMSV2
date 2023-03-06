@@ -18,4 +18,14 @@ public class AddSectionDialogController {
         }
         return null;
     }
+
+    @FXML
+    public ButtonSections newButton(String name) {
+        if (name.isEmpty()){
+            System.out.println("enter all the info");
+        }else {
+            return new ButtonSections(name);
+        }
+        return null;
+    }
 }

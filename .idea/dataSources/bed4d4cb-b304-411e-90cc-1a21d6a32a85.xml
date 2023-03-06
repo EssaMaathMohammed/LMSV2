@@ -46,7 +46,7 @@
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
     <column id="13" parent="8" name="ORDER_ID">
-      <AutoIncrement>37</AutoIncrement>
+      <AutoIncrement>39</AutoIncrement>
       <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>

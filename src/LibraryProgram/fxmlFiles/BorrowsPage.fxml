@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="borrowBorderPane" minWidth="1550" stylesheets="@../Css/BorrowCss.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.BorrowsPageController">
+<BorderPane fx:id="borrowBorderPane" prefHeight="854" prefWidth="1600.0" stylesheets="@../Css/BorrowCss.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.BorrowsPageController">
     <top>
         <HBox>
         <HBox>
@@ -13,7 +13,7 @@
             </padding>
             <Label fx:id="borrow" text="Borrows:" textAlignment="CENTER" />
         </HBox>
-        <VBox alignment="TOP_RIGHT" prefHeight="94.0" prefWidth="290.0" spacing="10">
+        <VBox alignment="TOP_RIGHT" prefHeight="94.0" prefWidth="338.0" spacing="10">
             <padding>
                 <Insets bottom="20" left="40" right="10" top="20" />
             </padding>
@@ -26,13 +26,13 @@
     </top>
 
     <center>
-        <VBox minHeight="350" spacing="10">
+        <VBox prefWidth="1600.0" spacing="10">
             <padding>
                 <Insets left="10" right="10" top="10" />
             </padding>
 
             <HBox spacing="10">
-            <TableView fx:id="BorrowedTableView" maxHeight="270">
+            <TableView fx:id="BorrowedTableView" maxHeight="300.0" prefHeight="300.0" prefWidth="1559.0">
                 <columns>
                     <TableColumn fx:id="firstName" prefWidth="132.00000894069672" text="First Name" />
                     <TableColumn fx:id="lastName" prefWidth="147.99998474121094" text="Middle Name" />
@@ -47,17 +47,19 @@
             </TableView>
 
             </HBox>
-            <HBox alignment="CENTER_LEFT" spacing="10">
+
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="1580.0" spacing="10">
+
                 <TextField fx:id="searchTextField" prefHeight="35.0" prefWidth="282.0" promptText="Member ID" />
-                <Button fx:id="searchOne" onAction="#searchButtonPressed"  text="Search" textAlignment="CENTER" />
-                    <Button fx:id="insert" onAction="#insertButtonPressed"  text="Add a New Borrow" textAlignment="CENTER" />
-                    <Button fx:id="return" onAction="#returnButtonPressed"  text="Returned" textAlignment="CENTER" />
+                <Button fx:id="searchOne" onAction="#searchButtonPressed" text="Search" textAlignment="CENTER" />
+                    <Button fx:id="insert" onAction="#insertButtonPressed" text="Add a New Borrow" textAlignment="CENTER" />
+                    <Button fx:id="return" onAction="#returnButtonPressed" text="Returned" textAlignment="CENTER" />
             </HBox>
         </VBox>
     </center>
     <bottom>
-        <VBox minHeight="350" spacing="10">
-        <TableView fx:id="ReturnedTableView" maxHeight="270" maxWidth="1510">
+        <VBox spacing="10">
+        <TableView fx:id="ReturnedTableView" maxHeight="339.0" maxWidth="1561.0" prefHeight="300.0" prefWidth="1561.0">
             <columns>
                 <TableColumn fx:id="firstNameR" prefWidth="128.0000194311142" text="First Name" />
                 <TableColumn fx:id="lastNameR" prefWidth="150.0" text="Middle Name" />
@@ -73,8 +75,8 @@
         <HBox spacing="10">
             <Button fx:id="delete" onAction="#deleteButtonPressed" prefHeight="34.0" prefWidth="111.0" text="Delete" textAlignment="CENTER" />
                 <TextField fx:id="search2TextField" prefHeight="35.0" prefWidth="282.0" promptText="Member ID" />
-                <Button fx:id="searchTwo" onAction="#searchButtonPressed"   text="Search" textAlignment="CENTER" />
-            <Button fx:id="searchBetween" onAction="#searchBetweenButtonPressed"  text="Search Between" textAlignment="CENTER" />
+                <Button fx:id="searchTwo" onAction="#searchButtonPressed" text="Search" textAlignment="CENTER" />
+            <Button fx:id="searchBetween" onAction="#searchBetweenButtonPressed" text="Search Between" textAlignment="CENTER" />
         </HBox>
             <padding>
                 <Insets bottom="10" left="10" right="10" top="10" />
