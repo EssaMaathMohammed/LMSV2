@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 
 <Pane fx:id="homePagePane" stylesheets="@../Css/HomeCss.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.HomePageController">
-    <VBox fx:id="vbox" prefHeight="900" prefWidth="1800.0" spacing="20">
+    <VBox fx:id="vbox" prefHeight="854" prefWidth="1600.0" spacing="20">
         <padding>
             <Insets left="15" top="15" />
         </padding>

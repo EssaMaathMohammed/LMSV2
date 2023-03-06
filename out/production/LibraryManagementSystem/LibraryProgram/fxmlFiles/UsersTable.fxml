@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="usersBorderPane" minWidth="1550" stylesheets="@../Css/UsersPageCss.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.UsersTableController">
+<BorderPane fx:id="usersBorderPane" prefHeight="854" prefWidth="1600.0" stylesheets="@../Css/UsersPageCss.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.UsersTableController">
 
     <top>
         <HBox>
@@ -14,7 +14,7 @@
                 </padding>
                 <Label fx:id="usersLabel" alignment="CENTER" text="Users:" />
             </HBox>
-            <VBox alignment="TOP_RIGHT" prefHeight="84.0" prefWidth="1248.0" spacing="10">
+            <VBox alignment="TOP_RIGHT" prefHeight="84.0" prefWidth="1305.0" spacing="10">
                 <Button fx:id="SectionPage" onAction="#navigation" text="Back" translateX="70" />
                 <padding>
                     <Insets bottom="10" right="10" top="10" />
@@ -28,7 +28,7 @@
             <padding>
                 <Insets bottom="10" left="50" right="10" />
             </padding>
-            <TableView fx:id="userTable" minHeight="600" prefHeight="600.0" prefWidth="1449.0">
+            <TableView fx:id="userTable" minHeight="600" prefHeight="610.0" prefWidth="1510.0">
                 <columns>
                     <TableColumn fx:id="id" prefWidth="278.0000228881836" text="User ID" />
                     <TableColumn fx:id="userName" minWidth="0.0" prefWidth="296.6000671386719" text="Username" />
@@ -39,7 +39,7 @@
         </HBox>
     </center>
     <bottom>
-        <HBox minHeight="300" spacing="10">
+        <HBox spacing="10">
             <padding>
                 <Insets bottom="20" left="50" right="10" top="13" />
             </padding>

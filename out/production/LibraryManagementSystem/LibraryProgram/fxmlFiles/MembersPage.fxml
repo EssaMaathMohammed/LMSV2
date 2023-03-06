@@ -4,11 +4,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="memberBorderPane" minWidth="1550" stylesheets="@../Css/MembersCss.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.MembersPageController">
+<BorderPane fx:id="memberBorderPane" prefHeight="854" prefWidth="1600.0" stylesheets="@../Css/MembersCss.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LibraryProgram.MembersPageController">
 
     <top>
         <HBox>
-            <HBox prefHeight="94.0" prefWidth="1435.0">
+            <HBox prefHeight="94.0" prefWidth="1473.0">
                 <padding>
                     <Insets bottom="20" left="40" right="1180" top="20" />
                 </padding>
@@ -31,7 +31,7 @@
             <padding>
                 <Insets left="10" right="10" />
             </padding>
-        <TableView fx:id="tableView" minHeight="600" prefHeight="600.0" prefWidth="1509.0">
+        <TableView fx:id="tableView" minHeight="600" prefHeight="618.0" prefWidth="1552.0">
             <columns>
                 <TableColumn fx:id="memberIdColumn" onEditCommit="#editCell" prefWidth="172.60001504421234" text="Member Id" />
                 <TableColumn fx:id="firstNameColumn" onEditCommit="#editCell" prefWidth="158.80001831054688" text="First Name" />
@@ -48,7 +48,7 @@
     </center>
 
     <bottom>
-        <HBox minHeight="300" spacing="20">
+        <HBox spacing="20">
             <padding>
                 <Insets bottom="10" left="10" top="10" />
             </padding>
