@@ -49,3 +49,9 @@ Deleted "Upside Down (Book Two)" From Programming Section  At 11:2:17
 Deleted "Supers (Book One): A Little Star Past Cassiopeia" From Programming Section  At 11:2:18
 Deleted "ee" From Programming Section  At 11:2:21
 Deleted "ewqe" From Engineering Section  At 3:32:9
+Deleted "Java How to Program, Early Objects, Global Edition" From history Section  At 4:33:5
+Deleted "book 4" From maths Section  At 4:36:52
+Deleted "math book" From maths Section  At 4:36:54
+Deleted "book 3" From maths Section  At 4:36:56
+Deleted "Test" From Comedy Section  At 4:37:10
+Deleted "BookOne" From history Section  At 4:38:2

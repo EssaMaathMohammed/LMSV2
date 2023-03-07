@@ -32,8 +32,10 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.*;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Optional;
+import org.json.*;
 
 
 public class BooksTableController {
@@ -462,66 +464,102 @@ public class BooksTableController {
                             URL bookUrl = new URL(url);
                             con = (HttpURLConnection) bookUrl.openConnection();
                             con.setRequestProperty("Content-Type", "application/json");
-                            con.setRequestProperty("Authorization", "45834_2b5d4cda67417d5f0ed3681d61f67cb5");
+                            con.setRequestProperty("Authorization", "49402_b418e935b6eef66b1d63f1c645bad619");
                             con.setRequestMethod("GET");
 
-                            InputStream inputStream = con.getInputStream();
-                            BookMakerAPI testingBook = new BookMakerAPI(inputStream);
+//                            InputStream inputStream = con.getInputStream();
+//                            BookMakerAPI testingBook = new BookMakerAPI(inputStream);
 
                             // create the image into the bookImagesFile
                             try {
-                                URL url1 = new URL(testingBook.getImage());
+
+                                StringBuilder content;
+
+                                try (BufferedReader in = new BufferedReader(
+                                        new InputStreamReader(con.getInputStream()))) {
+
+                                    String line;
+                                    content = new StringBuilder();
+
+                                    while ((line = in.readLine()) != null) {
+                                        content.append(line);
+                                        content.append(System.lineSeparator());
+                                    }
+                                }
+                                String jsonString = content.toString();
+
+                                JSONObject jsonObject = new JSONObject(jsonString);
+                                JSONObject book = jsonObject.getJSONObject("book");
+
+                                String title = book.getString("title");
+                                JSONArray authorsArray = book.getJSONArray("authors");
+                                String[] authors = new String[authorsArray.length()];
+                                for (int i = 0; i < authorsArray.length(); i++) {
+                                    authors[i] = authorsArray.getString(i);
+                                }
+                                String datePublished = book.getString("date_published");
+                                String isbn13 = book.getString("isbn13");
+                                // the url of the image.
+                                String image = book.getString("image");
+                                String publisher = book.getString("publisher");
+
+                                // gets the image of the book
+                                URL url1 = new URL(image);
                                 InputStream in = new BufferedInputStream(url1.openStream());
                                 ByteArrayOutputStream out = new ByteArrayOutputStream();
+
                                 byte[] buf = new byte[1024];
                                 int n;
                                 while (-1!=(n=in.read(buf)))
                                 {
                                     out.write(buf, 0, n);
                                 }
+
                                 out.close();
                                 in.close();
                                 byte[] response = out.toByteArray();
-
                                 // name of the image so it gets stored in the database and gets uploaded everytime we use it
-                                String imagePath = "resources/bookImages/" + testingBook.getIsbn() + ".jpg";
-                                FileOutputStream fos = new FileOutputStream(imagePath);
+                                String imagePath = "resources/bookImages/" + isbn13 + ".jpg";
+
+                                // create directories leading up to the file path if they don't exist
+                                File file = new File(imagePath);
+                                file.getParentFile().mkdirs();
+
+                                FileOutputStream fos = new FileOutputStream(file);
                                 fos.write(response);
                                 fos.close();
 
-                                INSERT_BOOK.setString(1,testingBook.getBookName());
+                                INSERT_BOOK.setString(1,title);
                                 boolean available = dialogController.getQuantityTextField() > 0;
                                 INSERT_BOOK.setBoolean(2,available);
                                 INSERT_BOOK.setDouble(3,dialogController.getPriceTextField());
                                 INSERT_BOOK.setInt(4,dialogController.getQuantityTextField());
                                 INSERT_BOOK.setString(5,nameOfButton);
-                                INSERT_BOOK.setLong(6,Long.parseLong(testingBook.getIsbn()));
+                                INSERT_BOOK.setLong(6,Long.parseLong(isbn13));
                                 INSERT_BOOK.setString(7,imagePath);
-                                INSERT_BOOK.setString(8,testingBook.getDatePublished());
-                                INSERT_BOOK.setString(9,testingBook.getPublisher());
-                                INSERT_BOOK.setString(10,testingBook.getAuthor());
+                                INSERT_BOOK.setString(8,datePublished);
+                                INSERT_BOOK.setString(9,publisher);
+                                INSERT_BOOK.setString(10, Arrays.toString(authors));
 
+
+                                Calendar cal = Calendar.getInstance();
+                                try {
+                                    FileWriter fileWriter = new FileWriter(employeeLog,true);
+                                    fileWriter.append("Inserted ").append("\"").append(title).append("\"").append(" In ").append(nameOfButton)
+                                            .append(" Section " + " At ").append(String.valueOf(cal.get(Calendar.HOUR))).append(":").append(String.valueOf(cal.get(Calendar.MINUTE)))
+                                            .append(":").append(String.valueOf(cal.get(Calendar.SECOND))).append("\n");
+
+                                    fileWriter.close();
+                                } catch (IOException e) {
+                                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                                    alert.setTitle("PATH ERROR");
+                                    alert.setContentText(e.getMessage());
+                                    alert.showAndWait();
+                                }
                             }catch (MalformedURLException | FileNotFoundException e) {
                                 displayAlert(Alert.AlertType.ERROR,"Connection Or Book Not Found In the Database","Either the Book is not found in the Database\nor the connections is lost\nplease check the connection to the Internet");
                                 break INSERT_PROCESS;
                             }
-
-                            Calendar cal = Calendar.getInstance();
-
-                            try {
-                                FileWriter fileWriter = new FileWriter(employeeLog,true);
-                                fileWriter.append("Inserted ").append("\"").append(testingBook.getBookName()).append("\"").append(" In ").append(nameOfButton)
-                                        .append(" Section " + " At ").append(String.valueOf(cal.get(Calendar.HOUR))).append(":").append(String.valueOf(cal.get(Calendar.MINUTE)))
-                                        .append(":").append(String.valueOf(cal.get(Calendar.SECOND))).append("\n");
-
-                                fileWriter.close();
-                            } catch (IOException e) {
-                                Alert alert = new Alert(Alert.AlertType.ERROR);
-                                alert.setTitle("PATH ERROR");
-                                alert.setContentText(e.getMessage());
-                                alert.showAndWait();
-                            }
-
                         } catch (IOException e) {
                             displayAlert(Alert.AlertType.ERROR,"Connection Or Book Not Found In the Database","Either the Book is not found in the Database\nor the connections is lost\nplease check the connection to the Internet");
                             break INSERT_PROCESS;

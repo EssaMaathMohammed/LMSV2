@@ -6,6 +6,7 @@ module LibraryManagementSystem {
     requires javafx.swing;
     requires javafx.graphics;
     requires mysql.connector.j;
+    requires org.json;
     opens resources;
     opens LibraryProgram;
     opens LibraryProgram.databaseClasses;

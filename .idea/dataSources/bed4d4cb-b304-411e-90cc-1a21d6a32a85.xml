@@ -6,47 +6,47 @@
       <DefaultEngine>InnoDB</DefaultEngine>
       <ServerVersion>10.4.27</ServerVersion>
     </root>
-    <schema id="2" parent="1" name="information_schema">
-      <CollationName>utf8_general_ci</CollationName>
-    </schema>
-    <schema id="3" parent="1" name="mysql">
-      <CollationName>utf8mb4_general_ci</CollationName>
-    </schema>
-    <schema id="4" parent="1" name="performance_schema">
-      <CollationName>utf8_general_ci</CollationName>
-    </schema>
-    <schema id="5" parent="1" name="phpmyadmin">
-      <CollationName>utf8_bin</CollationName>
-    </schema>
-    <schema id="6" parent="1" name="spulibdb">
+    <schema id="2" parent="1" name="spulibdb">
       <Current>1</Current>
       <CollationName>utf8mb4_general_ci</CollationName>
+    </schema>
+    <schema id="3" parent="1" name="information_schema">
+      <CollationName>utf8_general_ci</CollationName>
+    </schema>
+    <schema id="4" parent="1" name="mysql">
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </schema>
+    <schema id="5" parent="1" name="performance_schema">
+      <CollationName>utf8_general_ci</CollationName>
+    </schema>
+    <schema id="6" parent="1" name="phpmyadmin">
+      <CollationName>utf8_bin</CollationName>
     </schema>
     <schema id="7" parent="1" name="test">
       <CollationName>latin1_swedish_ci</CollationName>
     </schema>
-    <table id="8" parent="6" name="booking">
+    <table id="8" parent="2" name="booking">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="9" parent="6" name="books">
+    <table id="9" parent="2" name="books">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="10" parent="6" name="borrow">
+    <table id="10" parent="2" name="borrow">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="11" parent="6" name="members">
+    <table id="11" parent="2" name="members">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="12" parent="6" name="users">
+    <table id="12" parent="2" name="users">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
     <column id="13" parent="8" name="ORDER_ID">
-      <AutoIncrement>39</AutoIncrement>
+      <AutoIncrement>44</AutoIncrement>
       <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
